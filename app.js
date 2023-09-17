@@ -5,8 +5,8 @@
 //JAI SIYA RAM JI
 //JAI HANUMAN JI
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
+const app = express();
 const {MONGOURI} = require('./config/keys');
 const PORT = 5000 || process.env.PORT;
  
@@ -28,7 +28,6 @@ app.use(require('./routes/post'))
 app.use(require('./routes/user')) 
 
 
-
 if(process.env.NODE_ENV=="production")
 {
     app.use(express.static('build'))
@@ -38,7 +37,6 @@ if(process.env.NODE_ENV=="production")
         res.sendFile(path.resolve(__dirname,'build','index.html'))
     })
 }
-
 
 app.listen(PORT,()=>{
     console.log(`App is listening on ${PORT}`);
